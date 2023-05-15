@@ -1,0 +1,26 @@
+#include<stdio.h>
+int main()
+{
+    int hour, minute,second;
+    int time;
+    int count=0;
+    scanf("%d%d%d",&hour,&minute,&second);
+    scanf("%d",&time);
+    minute=60*minute;
+    second=minute+second;
+    second+=time;
+    minute = second;
+    minute/=60;
+    second%=60;
+    hour*=60;
+    minute+=hour;
+    hour=minute;
+    hour/=60;
+    minute%=60;
+    if(hour>23){
+        hour%=24;
+    }
+    printf("%d %d %d",hour,minute,second);
+
+}
+
