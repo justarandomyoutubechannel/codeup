@@ -1,0 +1,57 @@
+
+
+#include<stdio.h>
+
+
+
+
+typedef struct olym
+{
+    int nation;
+    int std_num;
+    int score;
+}Coding;
+
+
+int nation_cnt[101];
+
+int main()
+{
+    Coding student[100]={};
+    int n;
+    scanf("%d", &n);
+    for(int i=0;i<n;i++)
+    {
+        scanf("%d %d %d", &student[i].nation ,&student[i].std_num ,&student[i].score );
+    }
+    for(int i=n-1;i>=0;i--)
+    {
+        for(int j=0;j<i;j++)
+        {
+            if(student[j].score<student[j+1].score)
+            {
+                //swap
+                Coding temp=student[j];
+                student[j]=student[j+1];
+                student[j+1]=temp;
+            }
+        }
+    }
+    int count=0;
+    for(int i=0;i<n;i++)
+    {
+
+        int current_nation = student[i].nation;
+        if(nation_cnt[current_nation]<2)
+        {
+            printf("%d %d\n", student[i].nation,student[i].std_num);
+            nation_cnt[current_nation]++;
+            count++;
+        }
+        if(count==3)
+            break;
+
+    }
+
+    return 0;
+}
