@@ -1,0 +1,25 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    int max=0;
+    int min=1000;
+    int n;
+    int people;
+    scanf("%d",&n);
+    for(int i=1;i<=n;i++){
+        scanf("%d",&people);
+        if(people>max){
+            max=people;
+        }
+        if(people<min){
+            min=people;
+        }
+    }
+    printf("%d",max-min);
+
+
+    return 0;
+}
+
