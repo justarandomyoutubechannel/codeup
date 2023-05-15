@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h> 
+#include <string.h>
+
+
+char stacks[50001];
+int top=-1;
+
+
+void push(char data)
+{
+    stacks[++top]=data;
+}
+char pop()
+{
+    return stacks[top--];
+}
+
+
+int main()
+{
+    int cnt=0;
+    char str[500001]="";
+    scanf("%s", str);
+    int answer=0;
+    for(int i=0;i<strlen(str);i++)
+    {
+        if(str[i]=='(')
+            if(str[i+1]=='('){
+               cnt++;
+                push(str[i]);
+            }
+            else{
+                answer+=cnt;
+                i++;
+            }
+
+        else{
+            cnt--;
+            answer++;
+            pop();
+        }
+
+    }
+    printf("%d",answer);
+    return 0;
+}
+
+
