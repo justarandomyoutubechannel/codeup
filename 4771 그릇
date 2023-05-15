@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+    char arr[51];
+    int score=10;
+    scanf("%s",arr);
+    for(int i=1;arr[i]!='\0';i++){
+        if(arr[i-1]==arr[i])
+            score+=5;
+        else
+            score+=10;
+    }
+    printf("%d",score);
+    return 0;
+}
+
